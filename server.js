@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-require("./routes/apiRoutes.js")(app);
+// require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
