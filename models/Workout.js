@@ -16,29 +16,24 @@ const WorkoutSchema = new Schema({
 
       name: {
         type: String,
+        trim: true,
         unique: false,
       },
 
-      duration: [
-        {
-          type: Number,
-          unique: false,
-        },
-      ],
+      duration: {
+        type: Number,
+        unique: false,
+      },
 
-      distance: [
-        {
-          type: Number,
-          unique: false,
-        },
-      ],
+      distance: {
+        type: Number,
+        unique: false,
+      },
 
-      weight: [
-        {
-          type: Number,
-          unique: false,
-        },
-      ],
+      weight: {
+        type: Number,
+        unique: false,
+      },
 
       reps: {
         type: Number,
@@ -51,19 +46,21 @@ const WorkoutSchema = new Schema({
       },
     },
   ],
+},
+{
+  toJSON:{
+    virtuals: true
+  }
+}
+);
 
-  //   name: {
-  //     type: String,
-  //     unique: true
-  //   },
-  //   notes: [
-  //     {
-  //       type: Schema.Types.ObjectId,
-  //       ref: "Note"
-  //     }
-  //   ]
-});
 
-const User = mongoose.model("Workout", WorkoutSchema);
+// WorkoutSchema.virtual("totalDuration").get(()=>{
+//   return this.exercises.reduce((total, exercise) => {
+//     return total + exercise.duration;
+//   })
+// });
 
-module.exports = User;
+const Workout = mongoose.model("Workout", WorkoutSchema);
+
+module.exports = Workout;
