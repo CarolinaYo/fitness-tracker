@@ -16,7 +16,7 @@ Then after sucessfull connection, user need to type _localhost:3000_ in the brow
 ### Link to access the app in __Heroku__:
 
 This application is also hosted in Heroku web server. \
-Click this link: https://git.heroku.com/quiet-forest-70187.git  to access this application.
+Click this link: https://quiet-forest-70187.herokuapp.com/ to access this application.
 
 ## Usage 
 ### __Main Page__: index.html
@@ -45,4 +45,4 @@ Front-end code is provided by  UW Fullstack Bootcamp Course.
 ## MAINTAINER 
 This is an individual assignment maintained by Carolina Yoedhana.
 * GitHub repo: https://github.com/CarolinaYo/fitness-tracker.git
-* Deployed Heroku link: https://git.heroku.com/quiet-forest-70187.git
+* Deployed Heroku link: https://quiet-forest-70187.herokuapp.com/
