@@ -9,7 +9,7 @@ module.exports = (app) => {
     db.Workout.aggregate([
       {
         $addFields: {
-          totalDuration: { $sum: ["$exercises.duration"] },
+          totalDuration: { $sum: "$exercises.duration" },
         },
       },
     ])
@@ -56,7 +56,7 @@ module.exports = (app) => {
     db.Workout.aggregate([
       {
         $addFields: {
-          totalDuration: { $sum: ["$exercises.duration"] },
+          totalDuration: { $sum: "$exercises.duration" },
         },
       },
     ])
