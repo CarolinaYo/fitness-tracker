@@ -40,7 +40,7 @@ Page preview: \
 ![dashboard](public/assets/images/dashboard.png)
 
 ## CONTRIBUTOR
-Front-end code is provided by  UW Fullstack Bootcamp Course.
+Front-end code is provided by  UW Fullstack Bootcamp team.
 
 ## MAINTAINER 
 This is an individual assignment maintained by Carolina Yoedhana.
