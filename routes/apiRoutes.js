@@ -3,19 +3,19 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-
 module.exports = (app) => {
   // GET LAST WORKOUT --- fetch("/api/workouts") ------
   app.get("/api/workouts", (req, res) => {
     db.Workout.aggregate([
-        {
-          $addFields: {
-            totalDuration: { $sum: "$exercises.duration" },
-          },
+      {
+        $addFields: {
+          totalDuration: { $sum: ["$exercises.duration"] },
         },
+      },
     ])
-    .sort({day:"des"}).limit(7)
-    .sort({day:"asc"})
+      .sort({ day: "desc" })
+      .limit(7)
+      .sort({ day: "asc" })
       .then((dbWorkout) => {
         console.log("all workout from last session: ", dbWorkout);
         res.json(dbWorkout);
@@ -54,22 +54,23 @@ module.exports = (app) => {
 
   // GET WORKOUT IN RANGE -- fetch(`/api/workouts/range`) ---
   app.get("/api/workouts/range", (req, res) => {
-     db.Workout.aggregate([
-        {
-          $addFields: {
-            totalDuration: { $sum: "$exercises.duration" },
-          },
+    db.Workout.aggregate([
+      {
+        $addFields: {
+          totalDuration: { $sum: ["$exercises.duration"] },
         },
+      },
     ])
-    .sort({day:"des"}).limit(7)
-    .sort({day:"asc"})
-    .then(data => {
-        res.json(data)
-    })
-    .catch(err => {
-        res.json(err)
-    });
-   
+      .sort({ day: "desc" })
+      .limit(7)
+      .sort({ day: "asc" })
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+
     //     (err, result) => {
     //         if(err) {
     //             res.send(err)
@@ -79,6 +80,5 @@ module.exports = (app) => {
     //     }
     //   ],
     //   )
-    
   });
 };
