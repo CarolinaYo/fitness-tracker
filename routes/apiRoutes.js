@@ -17,7 +17,6 @@ module.exports = (app) => {
       .limit(7)
       .sort({ day: "asc" })
       .then((dbWorkout) => {
-        console.log("all workout from last session: ", dbWorkout);
         res.json(dbWorkout);
       })
       .catch((err) => {
@@ -70,15 +69,5 @@ module.exports = (app) => {
       .catch((err) => {
         res.json(err);
       });
-
-    //     (err, result) => {
-    //         if(err) {
-    //             res.send(err)
-    //         } else {
-    //             res.json(result)
-    //         }
-    //     }
-    //   ],
-    //   )
   });
 };
